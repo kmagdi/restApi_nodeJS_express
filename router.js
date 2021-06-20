@@ -1,12 +1,9 @@
 import express from 'express'
 import {v4 as uuidv4} from 'uuid'
-
 const router=express.Router()
-
 let kiadok=[]
-
 router.get('/',(req,res)=>{
-    //res.send('Welcome to the KIADOK page !')
+    console.log('Welcome to the KIADOK page !')
     res.send(kiadok)
 })
 router.post('/',(req,res)=>{
@@ -21,7 +18,6 @@ router.get('/:id',(req,res)=>{
     const {id}=req.params
     const foundKiado=kiadok.find(kiado=>kiado.id===id)
     res.send(foundKiado)
-
 })
 //delete a record by id:
 router.delete('/:id',(req,res)=>{
@@ -38,5 +34,4 @@ router.patch('/:id',(req,res)=>{
         getKiado.nev=nev
     res.send(`Sikeresen módosítva a ${id} azonosítójú kiadó neve!`)
 })
-
 export default router
